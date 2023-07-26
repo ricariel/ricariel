@@ -14,3 +14,11 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+> :warning: All repositories here (if any) are just mirrors!
+
+### Because I don't want to be dependent on a Microsoft service, I migrated all repositories to reliable services.
+- personal github alternative: [Forgejo instance at home](https://www.zyria.de/git/)
+- business github alternative: [Forgejo instance at hetzner](https://www.casa-due-pur.de/git/)
+- external infrastructure: [Codeberg](https://codeberg.org/ricariel)
+  
