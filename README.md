@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-> :warning: All repositories here (if any) are just mirrors!
+> :warning: All repositories here (if any) are just mirrors mainly for working together!
 
 ### Because I don't want to be dependent on a Microsoft service, I migrated all repositories to reliable services.
 - personal github alternative: [Forgejo instance at home](https://www.zyria.de/git/)
