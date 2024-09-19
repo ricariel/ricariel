@@ -12,3 +12,7 @@ Here i store all my private used repositories. Most of them are private and
 hopefully not accessable by public.
 
 Feel free to use them.
+
+- Contact:
+  - Mastodon <a href="https://kirchner.social/@fabrice" aria-label="Mastodon" rel="me" target="_blank">@fabrice@kirchner.social</a>
+
