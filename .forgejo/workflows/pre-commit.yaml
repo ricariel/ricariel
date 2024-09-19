@@ -1,0 +1,21 @@
+---
+
+name: Pre-Commit Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: https://code.forgejo.org/actions/checkout@v3
+    - uses: https://code.forgejo.org/actions/setup-python@v3
+    - uses: https://github.com/pre-commit/action@v3.0.1
+      with:
+        extra_args: --all-files
+    - uses: https://github.com/stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Apply pre-commit changes
