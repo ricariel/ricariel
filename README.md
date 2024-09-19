@@ -1,4 +1,4 @@
-### Hi there
+# Hi there
 
 > :warning: All repositories outside my [Forgejo instance at home](https://git.zyria.de/) (if any) are just mirrors mainly for working together!
 
