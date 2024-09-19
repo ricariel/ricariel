@@ -29,4 +29,3 @@ jobs:
           git@codeberg.org:ricariel/.profile.git
         ssh_private_key:                              # <-- use 'secrets' to pass credential information.
           ${{ secrets.ZYRIA_CODEBERG_SSH }}
-
