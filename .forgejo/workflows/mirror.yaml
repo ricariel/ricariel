@@ -1,8 +1,8 @@
 name: Mirroring
 
 on:
-  push
-  delete
+  push:
+  delete:
 
 jobs:
   to_github:
