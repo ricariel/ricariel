@@ -1,3 +1,7 @@
 ---
 MD013:
   line_length: 160
+MD033:
+  # Allowed elements
+  allowed_elements:
+    - a

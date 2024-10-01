@@ -15,4 +15,3 @@ Feel free to use them.
 
 - Contact:
   - Mastodon <a href="https://kirchner.social/@fabrice" aria-label="Mastodon" rel="me" target="_blank">@fabrice@kirchner.social</a>
-
