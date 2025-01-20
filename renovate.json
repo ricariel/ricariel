@@ -9,8 +9,8 @@
   ],
   "helm-values": {
     "fileMatch": [
-    "(^|/)*[^/]*\\.ya?ml$"
-  ]
+      "(^|/)*[^/]*\\.ya?ml$"
+    ]
   },
   "packageRules": [
     {
@@ -28,8 +28,10 @@
   "platformAutomerge": true,
   "timezone": "Europe/Amsterdam",
   "dependencyDashboardTitle": "Renovate Dashboard",
-  "suppressNotifications": ["prIgnoreNotification"],
+  "suppressNotifications": [
+    "prIgnoreNotification"
+  ],
   "commitBodyTable": true,
   "rebaseWhen": "conflicted",
-  "platformCommit": true
+  "platformCommit": "enabled"
 }
