@@ -2,6 +2,9 @@ name: Mirroring
 
 on:
   push:
+    branches:
+      - main
+      - master
   delete:
 
 jobs:
@@ -14,6 +17,6 @@ jobs:
     - uses: https://github.com/pixta-dev/repository-mirroring-action@v1
       with:
         target_repo_url:
-          git@github.com:ricariel/ricariel.git
+          git@github.com:ricariel/${{ github.event.repository.name }}.git
         ssh_private_key:                              # <-- use 'secrets' to pass credential information.
           ${{ secrets.ZYRIA_GITHUB_SSH }}
