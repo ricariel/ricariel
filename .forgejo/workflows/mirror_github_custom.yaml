@@ -17,6 +17,6 @@ jobs:
     - uses: https://github.com/pixta-dev/repository-mirroring-action@674e65a7d483ca28dafaacba0d07351bdcc8bd75 # v1
       with:
         target_repo_url:
-          git@github.com:ricariel/${{ github.event.repository.name }}.git
+          git@github.com:ricariel/ricariel.git
         ssh_private_key:                              # <-- use 'secrets' to pass credential information.
           ${{ secrets.ZYRIA_GITHUB_SSH }}
