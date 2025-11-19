@@ -10,7 +10,7 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: https://code.forgejo.org/actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      - uses: https://code.forgejo.org/actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
       - uses: https://code.forgejo.org/actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
       - name: Install detect-secret
         run: pip install detect-secrets
