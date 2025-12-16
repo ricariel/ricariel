@@ -1,22 +1,18 @@
-name: Mirroring
+---
+name: Mirror to Codeberg
 
 on:
   push:
     branches:
       - main
       - master
-  delete:
 
 jobs:
-  to_codeberg:
+  mirror:
     runs-on: ubuntu-latest
-    steps:                                              # <-- must use actions/checkout before mirroring!
-    - uses: https://github.com/actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
-      with:
-        fetch-depth: 0
-    - uses: https://github.com/pixta-dev/repository-mirroring-action@674e65a7d483ca28dafaacba0d07351bdcc8bd75 # v1
-      with:
-        target_repo_url:
-          git@codeberg.org:ricariel/${{ github.event.repository.name }}.git
-        ssh_private_key:                              # <-- use 'secrets' to pass credential information.
-          ${{ secrets.ZYRIA_CODEBERG_SSH }}
+    steps:
+      - name: Mirror
+        uses: https://git.zyria.de/pyrox/actions/mirror@ccf2c8cd72cc1a31cec10eb5371c2489be6356cf # v1.0
+        with:
+          target_repo_url: 'git@codeberg.org:ricariel/${{ github.event.repository.name }}.git'
+          ssh_private_key: ${{ secrets.ZYRIA_CODEBERG_SSH }}
