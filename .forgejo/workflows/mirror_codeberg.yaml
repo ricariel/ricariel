@@ -1,18 +1,17 @@
 ---
-name: Mirror to Codeberg
+name: Mirror
 
 on:
   push:
     branches:
       - main
       - master
-
 jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
       - name: Mirror
-        uses: https://git.zyria.de/pyrox/actions/mirror@d34a8bda7d3d0be7815f4de8e418a860790b0f51 # v1.0
+        uses: https://git.zyria.de/pyrox/actions/mirror@v1
         with:
           target_repo_url: 'git@codeberg.org:ricariel/${{ github.event.repository.name }}.git'
           ssh_private_key: ${{ secrets.ZYRIA_CODEBERG_SSH }}
