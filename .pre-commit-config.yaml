@@ -1,4 +1,7 @@
 ---
+default_language_version:
+  python: python3
+
 exclude: |
     (?x)(
         ^apps/(.*)/charts/
@@ -144,6 +147,7 @@ repos:
     rev: v25.12.2 # put latest release tag from https://github.com/ansible/ansible-lint/releases/
     hooks:
       - id: ansible-lint
+        language_version: python3.12
         additional_dependencies:
           - netaddr
           - resolvelib==1.0.1
