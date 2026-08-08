@@ -54,7 +54,7 @@ repos:
       - id: dockerfilelint
         stages: [pre-commit]
   - repo: https://github.com/IamTheFij/ansible-pre-commit.git
-    rev: v0.1.2
+    rev: v1.0.1
     hooks:
       - id: encryption-check
   - repo: https://github.com/Lucas-C/pre-commit-hooks
