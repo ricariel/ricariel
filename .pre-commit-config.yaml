@@ -9,7 +9,7 @@ exclude: |
 
 repos:
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 44.17.1
+    rev: 44.26.0
     hooks:
       - id: renovate-config-validator
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -39,7 +39,7 @@ repos:
     hooks:
       - id: gitleaks
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: '3.8.0'  # pick a git hash / tag to point to
+    rev: '3.11.1'  # pick a git hash / tag to point to
     hooks:
       - id: editorconfig-checker
         alias: ec
@@ -144,7 +144,7 @@ repos:
       - id: ansible_role_find_unquoted_values
       - id: ansible_role_find_horizontal_when
   - repo: https://github.com/ansible/ansible-lint
-    rev: v26.6.0 # put latest release tag from https://github.com/ansible/ansible-lint/releases/
+    rev: v26.8.0 # put latest release tag from https://github.com/ansible/ansible-lint/releases/
     hooks:
       - id: ansible-lint
         language_version: python3.12
