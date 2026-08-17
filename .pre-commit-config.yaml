@@ -1,17 +1,12 @@
 ---
+# Von Hand gepflegt, aber nach einem gemeinsamen Muster: eine Basis, die in
+# allen Repositories identisch ist, plus Profile für das, was hier tatsächlich
+# liegt. Hooks für Dateitypen, die es in diesem Repo nicht gibt, fehlen
+# bewusst — sie kosteten in der CI Installationszeit, ohne je etwas zu prüfen.
 default_language_version:
   python: python3
 
-exclude: |
-    (?x)(
-        ^apps/(.*)/charts/
-    )
-
 repos:
-  - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 44.29.3
-    hooks:
-      - id: renovate-config-validator
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -22,24 +17,19 @@ repos:
       - id: check-merge-conflict
       - id: check-shebang-scripts-are-executable
       - id: check-symlinks
-      # - id: check-yaml
+      - id: check-yaml
+        args: [--allow-multiple-documents]
       - id: destroyed-symlinks
       - id: detect-private-key
-      - id: double-quote-string-fixer
       - id: end-of-file-fixer
       - id: mixed-line-ending
-      - id: requirements-txt-fixer
       - id: trailing-whitespace
-  - repo: https://github.com/psf/black
-    rev: 26.5.1
-    hooks:
-      - id: black
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.30.1
     hooks:
       - id: gitleaks
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: '3.11.1'  # pick a git hash / tag to point to
+    rev: '3.11.1'
     hooks:
       - id: editorconfig-checker
         alias: ec
@@ -48,15 +38,6 @@ repos:
     rev: v0.49.1
     hooks:
       - id: markdownlint
-  - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
-    rev: v0.1.0
-    hooks:
-      - id: dockerfilelint
-        stages: [pre-commit]
-  - repo: https://github.com/IamTheFij/ansible-pre-commit.git
-    rev: v1.0.1
-    hooks:
-      - id: encryption-check
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.6
     hooks:
@@ -64,21 +45,9 @@ repos:
       - id: remove-crlf
       - id: forbid-tabs
       - id: remove-tabs
-        args: [--whitespaces-count, '2']  # defaults to: 4
-      - id: chmod
-        args: ['644']
-        files: \.md$
-      - id: insert-license
-        files: \.groovy$
-        args:
-          - --license-filepath
-          - src/license_header.txt        # defaults to: LICENSE.txt
-          - --comment-style
-          - //                            # defaults to:  #
-          - --use-current-year
-          - --no-extra-eol                # see below
+        args: [--whitespaces-count, '2']
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 3.0.0  # or specific git tag
+    rev: 3.0.0
     hooks:
       - id: check-mailmap
       - id: forbid-binary
@@ -87,20 +56,12 @@ repos:
             (static|assets)/images/.*\.(jpg|png|ico)|
             (static|assets)/.*\.(jpg|png|ico)
           )$
-      - id: git-check  # Configure in .gitattributes
-      - id: git-dirty  # Configure in .gitignore
+      - id: git-check  # richtet sich nach .gitattributes
       - id: script-must-have-extension
-        exclude: ^\.envrc$
   - repo: https://github.com/jorisroovers/gitlint
-    rev: 'v0.19.1' # Fill in a tag / sha here (e.g. v0.19.1)
+    rev: 'v0.19.1'
     hooks:
       - id: gitlint
-  - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.5.0
-    hooks:
-      - id: detect-secrets
-        args: ['--baseline', '.secrets.baseline']
-        exclude: package.lock.json
   - repo: local
     hooks:
       - id: forbid-unicode-non-breaking-spaces
@@ -119,35 +80,3 @@ repos:
         language: system
         entry: perl -ne 'print if $m = /\xe2\x80\x93/; $t ||= $m; END{{exit $t}}'
         files: ''
-      - id: css-forbid-px
-        name: In CSS files, use rem or % over px
-        language: pygrep
-        entry: px
-        files: \.css$
-      - id: ot-sanitize-fonts
-        name: Calling ot-sanitise on otf/ttf/woff/woff2 font files
-        language: system
-        entry: sh -c 'type ot-sanitise >/dev/null
-          && for font in "$@";
-          do echo "$font";
-          ot-sanitise "$font"; done
-          || echo "WARNING Command ot-sanitise not found - skipping check"'
-        files: \.(otf|ttf|woff|woff2)$
-  - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.5.3
-    hooks:
-      - id: ansible_role_find_unused_variable
-      - id: ansible_role_find_empty_files
-      - id: ansible_role_find_empty_directories
-      - id: ansible_role_fix_readability
-      - id: ansible_role_find_undefined_handlers
-      - id: ansible_role_find_unquoted_values
-      - id: ansible_role_find_horizontal_when
-  - repo: https://github.com/ansible/ansible-lint
-    rev: v26.8.0 # put latest release tag from https://github.com/ansible/ansible-lint/releases/
-    hooks:
-      - id: ansible-lint
-        language_version: python3.12
-        additional_dependencies:
-          - netaddr
-          - resolvelib==1.0.1
