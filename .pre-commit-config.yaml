@@ -6,6 +6,13 @@
 default_language_version:
   python: python3
 
+# CHANGELOG.md wird von git-cliff erzeugt. Was ein Hook daran zurechtruecken
+# wuerde, ueberschreibt der naechste Lauf ohnehin wieder.
+exclude: |
+  (?x)^(
+    CHANGELOG\.md$
+  )
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
