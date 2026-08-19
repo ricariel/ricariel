@@ -1,12 +1,16 @@
 # Fabrice Kirchner
 
-Infrastructure as Code, mostly for my own homelab: Ansible roles and
-collections, a GitOps-managed k3s cluster, container stacks for mail and web,
-a few Hugo sites — plus solar monitoring and home automation on the side.
+I run my own infrastructure and publish most of the pieces: Ansible
+collections that configure the hosts, container images for mail, DNS and the
+web stack, the Hugo modules behind my sites, and the CI presets keeping some
+thirty repositories in sync. Solar monitoring and home automation happen on
+the side. The k3s cluster and the inventories stay private — the rest is out
+here.
 
 > [!NOTE]
-> Everything is developed on my own Forgejo instance. Repositories anywhere
-> else are mirrors, kept around so working together stays easy.
+> Everything is developed on my own Forgejo instance. What you find anywhere
+> else is a mirror of it, and [Codeberg](https://codeberg.org/ricariel) is the
+> one where you can reach me.
 
 ## Where the code lives
 
@@ -36,11 +40,13 @@ Most of it is public. These are the ones people actually reuse:
 
 Take what you need; every repository ships its own license.
 
-## Found something broken?
+## Questions, bugs, patches
 
 Registration on my instance is closed, so you cannot open an issue there.
-Ping me on Mastodon instead — or, for the few repositories mirrored to
-[GitHub](https://github.com/ricariel), open the issue right there.
+Use the [Codeberg mirror](https://codeberg.org/ricariel) instead, or write me
+on Mastodon. Pull requests are the one thing that will not survive: the mirror
+force-pushes on every change and overwrites whatever was created on the far
+side. Send a patch or an issue and I will carry it home myself.
 
 ## Contact
 
