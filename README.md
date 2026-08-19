@@ -1,17 +1,24 @@
-# Hi there
+# Fabrice Kirchner
 
-> :warning: All repositories outside my [Forgejo instance at home](https://git.zyria.de/) (if any) are just mirrors mainly for working together!
+Infrastructure as Code, mostly for my own homelab: Ansible roles and
+collections, a GitOps-managed k3s cluster, container stacks for mail and web,
+a few Hugo sites — plus solar monitoring and home automation on the side.
 
-**Because I don't want to be dependent on a Microsoft service, I migrated all repositories to reliable services.**
+> [!NOTE]
+> Everything is developed on my own Forgejo instance. Repositories anywhere
+> else are mirrors, kept around so working together stays easy.
 
-- personal github alternative: [Forgejo instance at home](https://www.zyria.de/git/)
-- business github alternative: [Forgejo instance at work](https://www.casa-due-pur.de/git/)
-- external infrastructure: [Codeberg](https://codeberg.org/ricariel)
+## Where the code lives
 
-Here i store all my private used repositories. Most of them are private and
-hopefully not accessable by public.
+- Personal: [git.zyria.de](https://git.zyria.de/)
+- Work: [git.casa-due-pur.de](https://git.casa-due-pur.de/)
+- Mirrors: [Codeberg](https://codeberg.org/ricariel) ·
+  [GitHub](https://github.com/ricariel)
 
-Feel free to use them.
+Most repositories are private; the public ones are yours to use under the
+license shipped with each of them.
 
-- Contact:
-  - Mastodon <a href="https://kirchner.social/@fabrice" aria-label="Mastodon" rel="me" target="_blank">@fabrice@kirchner.social</a>
+## Contact
+
+- <a href="https://kirchner.social/@fabrice" rel="me">@fabrice@kirchner.social</a>
+- [zyria.de](https://zyria.de)
