@@ -5,6 +5,12 @@ name: Pre-Commit Checks
 on:
   push:
     branches: [main]
+  # Von Hand ausloesbar. Ohne das laesst sich ein fehlgeschlagener Lauf nur
+  # durch einen weiteren Push wiederholen — diese Forgejo-Version bietet
+  # keinen Rerun ueber die API. Gebraucht wird es vor allem, wenn nicht das
+  # Repo schuld war: ansible-lint faellt aus, wenn sich gleichzeitige Laeufe
+  # den ansible-galaxy-Cache des Runners zerschiessen.
+  workflow_dispatch:
 
 jobs:
   call-reusable:
