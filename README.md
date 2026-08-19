@@ -15,8 +15,32 @@ a few Hugo sites — plus solar monitoring and home automation on the side.
 - Mirrors: [Codeberg](https://codeberg.org/ricariel) ·
   [GitHub](https://github.com/ricariel)
 
-Most repositories are private; the public ones are yours to use under the
-license shipped with each of them.
+## Worth a look
+
+Most of it is public. These are the ones people actually reuse:
+
+- [ansible-collection-unixoid](https://git.zyria.de/pyrox/ansible-collection-unixoid)
+  — the base configuration every one of my machines gets
+- [ansible-collection-podman](https://git.zyria.de/pyrox/ansible-collection-podman)
+  and [ansible-collection-docker](https://git.zyria.de/pyrox/ansible-collection-docker)
+  — container runtimes and the stacks that run on them
+- [postfix-docker](https://git.zyria.de/pyrox/postfix-docker) ·
+  [dovecot-docker](https://git.zyria.de/pyrox/dovecot-docker) ·
+  [rspamd-docker](https://git.zyria.de/pyrox/rspamd-docker)
+  — the mail stack behind zyria.de
+- [renovate-config](https://git.zyria.de/pyrox/renovate-config) and
+  [actions](https://git.zyria.de/pyrox/actions)
+  — shared presets and CI actions keeping some thirty repositories in sync
+- [nft-blacklist](https://git.zyria.de/pyrox/nft-blacklist)
+  — ban large numbers of IP addresses with nftables
+
+Take what you need; every repository ships its own license.
+
+## Found something broken?
+
+Registration on my instance is closed, so you cannot open an issue there.
+Ping me on Mastodon instead — or, for the few repositories mirrored to
+[GitHub](https://github.com/ricariel), open the issue right there.
 
 ## Contact
 
