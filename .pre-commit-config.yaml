@@ -13,6 +13,18 @@ exclude: |
     CHANGELOG\.md$
   )
 
+# generate-commit-msg haengt an der Stage prepare-commit-msg, nicht an
+# pre-commit. Ohne diese Zeile muesste der Typ bei jedem `pre-commit install`
+# von Hand mitgegeben werden. In der CI aendert sie nichts: `pre-commit run`
+# ohne --hook-stage laeuft nur ueber die Stage pre-commit.
+default_install_hook_types: [pre-commit, prepare-commit-msg]
+
+# Ein Hook ohne eigene stages laeuft in JEDER installierten Stage — mit
+# pre-commit, prepare-commit-msg und commit-msg also dreimal pro Commit.
+# Diese Zeile begrenzt die Vorgabe auf pre-commit. Hooks, die ihre Stage
+# selbst angeben (gitlint, generate-commit-msg), behalten sie.
+default_stages: [pre-commit]
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -69,24 +81,12 @@ repos:
     rev: 'v0.19.1'
     hooks:
       - id: gitlint
-  - repo: local
+  # Loesen die frueheren Perl-Einzeiler ab. fix-nbsp meldet und ersetzt in
+  # einem Durchgang; fuer U+2013 gibt es bewusst keinen Fixer, denn die
+  # richtige Wahl haengt vom Satz ab.
+  - repo: https://git.zyria.de/pyrox/pre-commit-hooks
+    rev: v1.1.1
     hooks:
-      - id: forbid-unicode-non-breaking-spaces
-        name: Detect unicode non-breaking space character U+00A0 aka M-BM-
-        language: system
-        entry: perl -ne 'print if $m = /\xc2\xa0/; $t ||= $m; END{{exit $t}}'
-        files: ''
-        types: [text]
-      - id: remove-unicode-non-breaking-spaces
-        name: Remove unicode non-breaking space character U+00A0 aka M-BM-
-        language: system
-        entry: perl -pi* -e 's/\xc2\xa0/ /g && ($t = 1) && print STDERR $_; END{{exit
-          $t}}'
-        files: ''
-        types: [text]
-      - id: forbid-en-dashes
-        name: Detect the EXTREMELY confusing unicode character U+2013
-        language: system
-        entry: perl -ne 'print if $m = /\xe2\x80\x93/; $t ||= $m; END{{exit $t}}'
-        files: ''
-        types: [text]
+      - id: fix-nbsp
+      - id: forbid-en-dash
+      - id: generate-commit-msg
