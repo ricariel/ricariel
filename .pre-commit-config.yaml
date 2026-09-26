@@ -85,7 +85,7 @@ repos:
   # einem Durchgang; fuer U+2013 gibt es bewusst keinen Fixer, denn die
   # richtige Wahl haengt vom Satz ab.
   - repo: https://git.zyria.de/pyrox/pre-commit-hooks
-    rev: v1.1.1
+    rev: v1.1.2
     hooks:
       - id: fix-nbsp
       - id: forbid-en-dash
