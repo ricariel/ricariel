@@ -7,6 +7,20 @@ on:
     branches:
       - main
       - master
+  # Der Changelog-Commit kommt mit dem automatischen Token und loest in
+  # Forgejo keinen Push-Lauf aus. Der taegliche Lauf zieht ihn nach; die
+  # Uhrzeit ist je Ziel versetzt, damit nicht alle Spiegel zugleich laufen.
+  schedule:
+    - cron: '10 2 * * *'
+  workflow_dispatch:
+
+# Laeufe desselben Ziels nacheinander: Forgejo reiht sie je Repository in
+# dieser Gruppe ein, statt sie abzubrechen. Parallele Pushes auf dasselbe Ziel
+# scheiterten sonst mit "incorrect old value provided".
+concurrency:
+  group: mirror-codeberg
+  cancel-in-progress: false
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
