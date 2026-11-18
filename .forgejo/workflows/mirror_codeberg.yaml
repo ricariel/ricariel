@@ -7,16 +7,16 @@ on:
     branches:
       - main
       - master
-  # Der Changelog-Commit kommt mit dem automatischen Token und loest in
-  # Forgejo keinen Push-Lauf aus. Der taegliche Lauf zieht ihn nach; die
-  # Uhrzeit ist je Ziel versetzt, damit nicht alle Spiegel zugleich laufen.
+  # The changelog commit arrives with the automatic token and starts no push
+  # run in Forgejo. The daily run picks it up; the time of day is staggered
+  # per target so that not all mirrors run at once.
   schedule:
     - cron: '10 2 * * *'
   workflow_dispatch:
 
-# Laeufe desselben Ziels nacheinander: Forgejo reiht sie je Repository in
-# dieser Gruppe ein, statt sie abzubrechen. Parallele Pushes auf dasselbe Ziel
-# scheiterten sonst mit "incorrect old value provided".
+# Runs of the same target one after another: Forgejo queues them per
+# repository in this group instead of cancelling them. Parallel pushes to the
+# same target failed with "incorrect old value provided" otherwise.
 concurrency:
   group: mirror-codeberg
   cancel-in-progress: false
