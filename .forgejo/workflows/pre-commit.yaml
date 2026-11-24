@@ -4,7 +4,13 @@ name: Pre-Commit Checks
 # yamllint disable-line rule:truthy
 on:
   push:
-    branches: [main]
+    # renovate/**: Renovate merges minor, patch and digest updates with
+    # automergeType=branch, so without a pull request, and the hooks are
+    # part of the gate: a bumped file that yamllint, markdownlint or
+    # gitleaks object to must not reach main unnoticed. Price of it: lint
+    # debt that is already in such a file blocks the automerge of an update
+    # that is not at fault.
+    branches: [main, 'renovate/**']
   # Can be triggered by hand. Without it a failed run can only be repeated
   # by another push — this Forgejo version offers no rerun through the API.
   # It is needed above all when the repository was not at fault:
